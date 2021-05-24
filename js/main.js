@@ -1,5 +1,5 @@
 import '../style.css'
-import * as THREE from '../node_modules/three/build/three.module.js'
+import * as THREE from '../node_modules/three'
 import { OrbitControls } from '../node_modules/three/examples/jsm/controls/OrbitControls'
 
 // =================================================================================
@@ -60,8 +60,8 @@ renderer.render( scene, camera )
 
 // ======================================
 // Let's add a torus:
-const shipTexture = new THREE.TextureLoader().load('ship.jpg')
-const normalShipTexture = new THREE.TextureLoader().load('normalShip.jpg')
+const shipTexture = new THREE.TextureLoader().load('../images/ship.jpg')
+const normalShipTexture = new THREE.TextureLoader().load('../images/normalShip.jpg')
 const geometry = new THREE.TorusGeometry( 10, 3, 16, 100 )
 // const material = new THREE.MeshStandardMaterial( { color: 0x2e88b5 } )
 const material = new THREE.MeshStandardMaterial({ map: shipTexture , normalMap: normalShipTexture})
@@ -85,17 +85,17 @@ scene.add(pointLight, ambientLight)
 Array(200).fill().forEach(addStar)
 
 // Background
-const spaceTexture = new THREE.TextureLoader().load('space.jpg')
+const spaceTexture = new THREE.TextureLoader().load('../images/space.jpg')
 scene.background = spaceTexture
 
 // Avatar
-const luisTexture = new THREE.TextureLoader().load('luis.jpg')
+const luisTexture = new THREE.TextureLoader().load('../images/luis.jpg')
 const luis = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: luisTexture }))
 scene.add(luis)
 
 // Moon
-const moonTexture = new THREE.TextureLoader().load('moon.jpg')
-const normalTexture = new THREE.TextureLoader().load('normal.jpg')
+const moonTexture = new THREE.TextureLoader().load('../images/moon.jpg')
+const normalTexture = new THREE.TextureLoader().load('../images/normal.jpg')
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
   new THREE.MeshStandardMaterial({
